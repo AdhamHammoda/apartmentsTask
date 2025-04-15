@@ -1,0 +1,41 @@
+.apartmentContainer {
+  display: flex;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px;
+  background-color: #f9f9f9;
+}
+ .apartmentImage {
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-right: 20px;
+}
+
+.details {
+  flex: 1;
+}
+
+.title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.description {
+  font-size: 1rem;
+  color: #555;
+  margin: 10px 0;
+}
+
+.info p {
+  font-size: 1rem;
+  color: #666;
+  margin: 5px 0;
+}
+
+.strong {
+  color: #333;
+} 

@@ -1,0 +1,100 @@
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .formGroup {
+    margin-bottom: 15px;
+  }
+  
+  .label {
+    font-size: 1rem;
+    margin-bottom: 5px;
+    color: #555;
+  }
+  
+  .input {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+  }
+  
+  .input:focus {
+    border-color: #007BFF;
+    outline: none;
+  }
+  
+  .submitButton {
+    padding: 12px;
+    background-color: #007BFF;
+    color: white;
+    font-size: 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .submitButton:hover {
+    background-color: #0056b3;
+  }
+  
+  .formGroup {
+    margin-bottom: 20px;
+  }
+  
+  .label {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    display: block;
+  }
+  
+  .select {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    outline: none;
+    background-color: #fff;
+    transition: border-color 0.3s ease-in-out;
+  }
+  
+  .select:focus {
+    border-color: #007bff; /* Blue border color when focused */
+  }
+  
+  .option {
+    padding: 10px;
+    font-size: 16px;
+    background-color: white;
+    cursor: pointer;
+  }
+  
+  .option:hover {
+    background-color: #f0f0f0; /* Light gray background when hovering over an option */
+  }
+  
+  .option:active {
+    background-color: #ddd; /* Slightly darker gray when option is clicked */
+  }
+  
