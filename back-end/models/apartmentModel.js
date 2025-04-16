@@ -7,26 +7,19 @@ async function getApartmentDetails(id) {
   }
 
 
-async function getApartments(searchFilter,pageNumber,pageSize) {
+async function getApartments(unitNumber,unitName,pageNumber,pageSize) {
     var query = 'SELECT * FROM APARTMENT WHERE 1 = 1 ';
     const params = [];
-    if(searchFilter!=null)
+    if(unitNumber!='')
       {
-        if(searchFilter.projectId!=null)
-          {
-            query = query.concat(" AND PROJECT_ID = ?");
-            params.push(searchFilter.projectId*1)
-          }
-          if(searchFilter.unitNumber!=null)
-            {
-              query = query.concat(" AND NUMBER = ?");
-          params.push(searchFilter.unitNumber*1)
-        }
-      if(searchFilter.unitName!=null)
-        {
-          query = query.concat(" AND NAME LIKE %%?%%");
-          params.push(searchFilter.unitName)
-        }
+        query = query.concat(" AND NUMBER = ?");
+        params.push(unitNumber*1)
+    }
+    if(unitName!='')
+      {
+        query = query.concat(" AND LOWER(NAME) LIKE ? ");
+        unitName = "%" + unitName + "%";
+        params.push([unitName])
       }
       params.push(pageNumber*pageSize);
       params.push(pageSize*1);

@@ -2,7 +2,7 @@ const Apartment = require('../models/apartmentModel');
 
 async function listApartments(req, res) {
     const params = req.query;
-    const apartments = await Apartment.getApartments(req?.body,params.pageNumber,params.pageSize);
+    const apartments = await Apartment.getApartments(params?.unitNumber,params?.unitName,params.pageNumber,params.pageSize);
     res.json(apartments);
 }
 

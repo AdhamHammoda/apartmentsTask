@@ -35,7 +35,7 @@ async function createTables() {
       }
 }
 
-async function insertSampleData() {
+async function insertSampleProjectsData() {
   try {
     const projects = [
       {
@@ -76,4 +76,58 @@ async function insertSampleData() {
   }
 }
 
-module.exports = { createTables, insertSampleData };
+async function insertSampleApartmentsData() {
+  try {
+    const apartments = [
+      {
+        projectId: 1,
+        name: 'Apartment 1',
+        description: 'Spacious two-bedroom apartment with balcony.',
+        number: 101,
+        location: 'Cairo',
+        price: 1223.00,
+        bedrooms: 2,
+        bathrooms: 2,
+        area: 233.0
+      },
+      {
+        projectId: 2,
+        name: 'Apartment 2',
+        description: 'Cozy one-bedroom apartment ideal for singles.',
+        number: 202,
+        location: 'Alexandria',
+        price: 899.99,
+        bedrooms: 1,
+        bathrooms: 1,
+        area: 150.0
+      }
+    ];
+
+    const [rows] = await db.query("SELECT COUNT(*) AS count FROM APARTMENT");
+    if (rows[0].count === 0) {
+      for (const apt of apartments) {
+        await db.query(
+          `INSERT INTO APARTMENT 
+          (PROJECT_ID, NAME, DESCRIPTION, NUMBER, LOCATION, PRICE, BEDROOMS, BATHROOMS, AREA)
+          VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+          [
+            apt.projectId,
+            apt.name,
+            apt.description,
+            apt.number,
+            apt.location,
+            apt.price,
+            apt.bedrooms,
+            apt.bathrooms,
+            apt.area
+          ]
+        );
+      }
+      console.log('Sample apartments inserted successfully');
+    }
+  } catch (error) {
+    console.error('Error inserting sample apartments:', error);
+  }
+}
+
+module.exports = {createTables, insertSampleProjectsData,insertSampleApartmentsData };

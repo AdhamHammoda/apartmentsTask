@@ -4,31 +4,42 @@ services:
   backend:
     build: ./back-end
     ports:
-      - "5000:5000"
+      - "5000:5000"  
     volumes:
       - ./backend:/app
     networks:
-      - booknet
+      - app-network 
+    depends_on:
+      - db  
+
+      
+  db:
+    image: mysql:8.0
+    container_name: mysql_db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: apartments
+      MYSQL_INITDB_SKIP_TZINFO: "true"
+      MYSQL_ALLOW_EMPTY_PASSWORD: "true"
+      MYSQL_EXTRA_FLAGS: "--innodb-force-recovery=1"
+    ports:
+      - "3300:3306" 
+    networks:
+      - app-network  
+
 
   frontend:
     build: ./front-end/apartments-app
     ports:
-      - "3000:3000"
+      - "3000:3000"  
     volumes:
       - ./frontend:/app
     depends_on:
-      - backend
+      - backend  
     networks:
-      - booknet
+      - app-network  
 
-  db:
-    image: mysql:8.0
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: apartments
-      MYSQL_USER: root
-      MYSQL_PASSWORD: root
-    ports:
-      - "3306:3306"
 networks:
-  booknet:
+  app-network: 
+    driver: bridge  

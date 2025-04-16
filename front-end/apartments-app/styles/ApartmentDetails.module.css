@@ -1,41 +1,90 @@
-.apartmentContainer {
-  display: flex;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  padding: 20px;
-  margin: 20px;
-  background-color: #f9f9f9;
+body{
+  background-color: #f1f1f1;
+  padding: 0;
+  margin: 0;
 }
- .apartmentImage {
-  width: 300px;
-  height: 200px;
+.apartmentContent {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  border-radius: 8px;
+  padding: 1rem;
+  background-color: white;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 1rem;
+}
+
+.apartmentImage {
   object-fit: cover;
   border-radius: 8px;
-  margin-right: 20px;
+  overflow: hidden;
+  flex-basis: 35%;
 }
 
 .details {
-  flex: 1;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin: 1rem 0;
 }
 
 .title {
   font-size: 1.8rem;
   font-weight: bold;
-  color: #333;
+  align-self: flex-start;
+  margin: 0;
+}
+
+.subtitle{
+  color: #2563eb;
+  align-self: flex-start;
+  margin: 0 0 8px 0;
 }
 
 .description {
   font-size: 1rem;
   color: #555;
-  margin: 10px 0;
+  flex-basis: 100%;
+}
+
+.info{
+  flex-basis: 60%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
 }
 
 .info p {
   font-size: 1rem;
   color: #666;
-  margin: 5px 0;
 }
 
-.strong {
-  color: #333;
-} 
+.saveBtn{
+  background-color: #2563eb;
+  color: white;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 8px;
+}
+
+.buttonContainer{
+  flex-basis: 100%;
+  display: flex;
+}
+
+
+@media (max-width: 800px) {
+  .info, .apartmentImage {
+    flex: 100%;
+  }
+  .details{
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+  }
+  .buttonContainer{
+    justify-content: center;
+  }
+}

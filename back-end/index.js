@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors')
+const db = require('./config/db');
 const apartmentRoutes = require('./routes/apartmentRoutes');
 const projectRoutes = require('./routes/projectRoutes');
 const initProcess = require('./initDB/init'); 
@@ -20,6 +21,17 @@ async function startServer() {
         console.log(`Server running at http://localhost:${PORT}`);
     });
 }
-initProcess.createTables();
-setTimeout(initProcess.insertSampleData,2000);
+
+
+async function init() {
+    try {
+        await initProcess.createTables();
+        await initProcess.insertSampleProjectsData();
+        await initProcess.insertSampleApartmentsData();
+      console.log("Initialization done");
+    } catch (err) {
+      console.error("Initialization failed:", err);
+    }
+}
+init();
 startServer();

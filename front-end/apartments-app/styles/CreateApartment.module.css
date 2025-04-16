@@ -1,6 +1,6 @@
 .container {
     max-width: 600px;
-    margin: 0 auto;
+    margin: 1rem auto;
     padding: 20px;
     background-color: #f9f9f9;
     border-radius: 8px;
@@ -11,16 +11,19 @@
     font-size: 2rem;
     margin-bottom: 20px;
     text-align: center;
-    color: #333;
+    color:#007BFF
   }
   
   .form {
     display: flex;
     flex-direction: column;
+    margin: auto;
   }
   
   .formGroup {
     margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
   }
   
   .label {
@@ -34,7 +37,7 @@
     font-size: 1rem;
     border: 1px solid #ccc;
     border-radius: 4px;
-    width: 100%;
+    flex-basis: 80%;
   }
   
   .input:focus {
@@ -73,7 +76,7 @@
     font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    width: 100%;
+    flex-basis: 80%;
     outline: none;
     background-color: #fff;
     transition: border-color 0.3s ease-in-out;

@@ -62,7 +62,7 @@ export default function ApartmentForm() {
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.title}>Create a New Apartment</h1>
+      <h1 className={styles.title}>Create New Apartment</h1>
       <form onSubmit={handleSubmit} className={styles.form}>
         <div className={styles.formGroup}>
           <label htmlFor="name" className={styles.label}>Apartment Name</label>
