@@ -96,8 +96,8 @@ You can modify this behavior in `backend/initDB/init.js`.
 
 ## 💡 Tips
 
-- If port 3306 is in use locally, change it in `docker-compose.yml` and `.env`.
-- Use `mysql` as the hostname (it's the service name in Docker).
+- If port 3306 is in use locally, change it in `docker-compose.yml``.
+- Use `db` as the hostname (it's the service name in Docker).
 - Restart containers easily:
   ```bash
   docker-compose down
