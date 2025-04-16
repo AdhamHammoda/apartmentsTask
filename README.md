@@ -63,6 +63,8 @@ When the backend starts:
 
 You can modify this behavior in `backend/initDB/init.js`.
 
+Once the front-end and back-end are running, the front-end will be running on localhost:3000, the home page is localhost:3000/apartments
+
 ---
 
 ## 📁 Project Structure
